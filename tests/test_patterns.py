@@ -52,3 +52,20 @@ def test_rotating_four_times_returns_original():
         rotated = rotate_pattern(rotated)
 
     assert rotated == BLINKER
+def test_normalize_pattern():
+    from game.engine.patterns import normalize_pattern
+
+    pattern = {
+        (5,8),(5,9),(6,8),
+    }
+    assert normalize_pattern(pattern) == {
+        (0,0),(0,1),(1,0),
+    }
+
+def test_pattern_dimensions():
+    from game.engine.patterns import pattern_dimensions
+
+    assert pattern_dimensions(BLOCK) == (2, 2)
+    assert pattern_dimensions(GLIDER) == (3, 3)
+    assert pattern_dimensions(ACORN) == (3, 7)
+    assert pattern_dimensions(set()) == (0, 0)   
