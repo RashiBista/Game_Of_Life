@@ -40,3 +40,12 @@ MAX_FPS = 30
 # Game information
 GAME_TITLE = "Cell Architect"
 TOTAL_CAMPAIGN_LEVELS = 10
+
+# Window and interface
+HUD_HEIGHT = 70
+RENDER_FPS = 60
+
+# Simulation Speed -generation per sec
+DEFAULT_FPS = 5
+MIN_FPS = 1
+MAX_FPS = 30
