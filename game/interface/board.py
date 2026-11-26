@@ -8,6 +8,7 @@ from game.config import (
     COLS,
     CELL_SIZE,
     COLORS,
+    AGE_COLORS,
 )
 
 
@@ -15,8 +16,9 @@ def draw_board(
     surface: pygame.Surface,
     live: set[tuple[int, int]],
     walls: set[tuple[int, int]],
+    cell_ages: dict[tuple[int, int], int],
 ) -> None:
-    """Draw the board, live cells, walls and grid."""
+    """Draw the board, living cells, walls and grid."""
 
     # 1. Draw the empty board background.
     surface.fill(COLORS["background"])
@@ -45,11 +47,16 @@ def draw_board(
             ),
         )
 
-    # 3. Draw living cells.
+    # 3. Draw living cells using their age.
     for row, col in live:
+        age = cell_ages.get((row, col), 0)
+
+        color_index = min(age, len(AGE_COLORS) - 1)
+        cell_color = AGE_COLORS[color_index]
+
         pygame.draw.rect(
             surface,
-            COLORS["build"],
+            cell_color,
             (
                 col * CELL_SIZE + 1,
                 row * CELL_SIZE + 1,
@@ -58,9 +65,10 @@ def draw_board(
             ),
         )
 
-    # 4. Draw grid lines.
+    # 4. Draw vertical grid lines.
     for col in range(COLS + 1):
         x = col * CELL_SIZE
+
         pygame.draw.line(
             surface,
             COLORS["grid"],
@@ -68,8 +76,10 @@ def draw_board(
             (x, ROWS * CELL_SIZE),
         )
 
+    # 5. Draw horizontal grid lines.
     for row in range(ROWS + 1):
         y = row * CELL_SIZE
+
         pygame.draw.line(
             surface,
             COLORS["grid"],
