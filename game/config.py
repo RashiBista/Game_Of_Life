@@ -10,27 +10,28 @@ BOARD_WIDTH = COLS * CELL_SIZE
 BOARD_HEIGHT = ROWS * CELL_SIZE
 
 # Original game's colour palette
+
 COLORS = {
-    "background": "#bc92cd",
-    "empty": "#844cad",
-    "grid": "#4e7ab1",
-    "build": "#3c2c59",
-    "target": "#0f153a",
-    "wall": "#195699",
-    "gold": "#0b1c3b",
-    "pink": "#7a4ba8",
-    "warning": "#ceb5d4",
-    "good": "#f6d48f",
+    "background": "#24305d",
+    "empty": "#111A2E",
+    "grid": "#263653",
+    "build": "#1E293B",
+    "target": "#70568A",
+    "wall": "#F59E0B",
+    "gold": "#FBBF24",
+    "pink": "#63376A",
+    "warning": "#c9c6d9",
+    "good": "#f7f4ff",
 }
 
-# Age-based cell colours
 AGE_COLORS = [
-    "#f2e199",
-    "#ecb44d",
-    "#d5a25e",
-    "#c2a368",
-    "#f6941d",
+    "#B8F7D4",
+    "#63E6BE",
+    "#38BDF8",
+    "#818CF8",
+    "#f1edf7",
 ]
+
 
 # Simulation defaults
 DEFAULT_FPS = 10
